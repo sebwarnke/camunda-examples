@@ -4,3 +4,4 @@
 .settings
 camunda-h2-dbs
 target
+build*
