@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_07ocw8k" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision2" name="Decision2">
+    <decisionTable id="decisionTable" hitPolicy="COLLECT">
+      <input id="input1" label="criteria" camunda:inputVariable="">
+        <inputExpression id="inputExpression1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="output" name="output" typeRef="string" />
+      <rule id="row-905121047-2">
+        <inputEntry id="UnaryTests_1aozy7q" expressionLanguage="juel">
+          <text><![CDATA[${string1.equals("Car Accident")}]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0009ted">
+          <text><![CDATA["equals1"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-905121047-4">
+        <inputEntry id="UnaryTests_0ez5mpe" expressionLanguage="juel">
+          <text><![CDATA[${string2.equals("Mobile")}]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zvt860">
+          <text><![CDATA["equals2"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-905121047-5">
+        <inputEntry id="UnaryTests_1ppyobo" expressionLanguage="juel">
+          <text>${string1.equals(string2)}</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dbvk4l">
+          <text><![CDATA["equalboth"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-905121047-6">
+        <inputEntry id="UnaryTests_0av5po5" expressionLanguage="juel">
+          <text><![CDATA[${string1.contains("Mobi")}]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15t5jg7">
+          <text><![CDATA["contains"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

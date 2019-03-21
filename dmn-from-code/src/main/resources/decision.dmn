@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_165agff" name="Decision" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="claim_assignment" name="Claim Assignment">
+    <extensionElements>
+      <biodi:bounds x="200" y="200" width="180" height="80" />
+    </extensionElements>
+    <decisionTable>
+      <input id="InputClause_188r4qk" label="Claim Type" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_16f5hnv" typeRef="string">
+          <text>claim_type</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ev7vte" label="Expenditure of Claim" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0vj3b4e" typeRef="long">
+          <text>expenditure</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1yjrmrp" label="Affected Object" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0p4f3th" typeRef="string">
+          <text>affected_object</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Assignee" name="assignee" typeRef="string" />
+      <rule id="row-657216527-1">
+        <inputEntry id="UnaryTests_0devcri">
+          <text><![CDATA["Car Accident"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02ve9z7">
+          <text><![CDATA[<1000]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_033pfyd">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19jn9j0">
+          <text><![CDATA["john"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-657216527-2">
+        <inputEntry id="UnaryTests_0207pvy">
+          <text><![CDATA["Car Accident"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13x61ds">
+          <text>[1000..10000[</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t7pm04">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11fyfy4">
+          <text><![CDATA["peter"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-657216527-3">
+        <inputEntry id="UnaryTests_03watt8">
+          <text><![CDATA["Car Accident"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a7ld9u">
+          <text><![CDATA[>=10000]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gnd90x">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qa3fh2">
+          <text><![CDATA["mary"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-657216527-4">
+        <inputEntry id="UnaryTests_0aobpp9">
+          <text><![CDATA["Third Party Liability"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dx6598">
+          <text><![CDATA[<500]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14ukny0">
+          <text><![CDATA[not("Mobile Phone")]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p9oohn">
+          <text><![CDATA["peter"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-657216527-5">
+        <description></description>
+        <inputEntry id="UnaryTests_09y51uq">
+          <text><![CDATA["Third Party Liability"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wivt0a">
+          <text><![CDATA[>=500]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iwxehx">
+          <text><![CDATA[not("Mobile Phone")]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dsbjsu">
+          <text><![CDATA["mary"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-657216527-6">
+        <inputEntry id="UnaryTests_0e788no">
+          <text><![CDATA["Third Party Liability"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04xzctq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kbfd4k">
+          <text><![CDATA["Mobile Phone"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uxejm4">
+          <text><![CDATA["mary"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
