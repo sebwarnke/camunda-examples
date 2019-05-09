@@ -14,3 +14,4 @@
 camunda-h2-dbs
 target
 build*
+**/.gitignore
