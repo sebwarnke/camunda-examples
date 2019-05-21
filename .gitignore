@@ -12,6 +12,7 @@
 
 # Others
 camunda-h2-dbs
+*/camunda-db.mv.db
 target
 build*
 **/.gitignore
