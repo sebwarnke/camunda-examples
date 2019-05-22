@@ -1,40 +1,53 @@
 package com.camunda.consulting.engineplugin;
 
-import org.camunda.bpm.engine.ProcessEngineConfiguration;
+import org.camunda.bpm.engine.ActivityTypes;
 import org.camunda.bpm.engine.impl.history.event.HistoricActivityInstanceEventEntity;
+import org.camunda.bpm.engine.impl.history.event.HistoricExternalTaskLogEntity;
 import org.camunda.bpm.engine.impl.history.event.HistoryEvent;
+import org.camunda.bpm.engine.impl.history.event.HistoryEventTypes;
 import org.camunda.bpm.engine.impl.history.handler.HistoryEventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomHistoryEventHandler implements HistoryEventHandler {
 
-    public static final Logger log = LoggerFactory.getLogger(CustomHistoryEventHandler.class);
+  private static final Logger log = LoggerFactory.getLogger(CustomHistoryEventHandler.class);
 
-    @Override
-    public void handleEvent(HistoryEvent historyEvent) {
+  @Override
+  public void handleEvent(HistoryEvent historyEvent) {
 
-       if (historyEvent instanceof HistoricActivityInstanceEventEntity) {
-           HistoricActivityInstanceEventEntity activityInstanceEventEntity = (HistoricActivityInstanceEventEntity) historyEvent;
+    if (historyEvent instanceof HistoricActivityInstanceEventEntity) {
+      HistoricActivityInstanceEventEntity activityInstanceEventEntity =
+        (HistoricActivityInstanceEventEntity) historyEvent;
 
-           if (activityInstanceEventEntity.getActivityType().equals("userTask")) {
-               log.info("++++++++++++++++++++");
-               log.info("UserTask detected :)");
-               log.info(activityInstanceEventEntity.getEventType());
-               log.info("++++++++++++++++++++");
-           }
-       }
+      if (historyEvent.getEventType().equals(HistoryEventTypes.ACTIVITY_INSTANCE_START.getEventName()) || historyEvent.getEventType()
+        .equals(HistoryEventTypes.ACTIVITY_INSTANCE_END.getEventName())) {
 
+        List<String> relevantActivityTypes = new ArrayList<>();
+        relevantActivityTypes.add(ActivityTypes.TASK_USER_TASK);
+        relevantActivityTypes.add(ActivityTypes.INTERMEDIATE_EVENT_MESSAGE);
+        relevantActivityTypes.add(ActivityTypes.INTERMEDIATE_EVENT_TIMER);
 
-    }
-
-    @Override
-    public void handleEvents(List<HistoryEvent> historyEvents) {
-        for (HistoryEvent historyEvent : historyEvents) {
-            handleEvent(historyEvent);
+        if (relevantActivityTypes.contains(activityInstanceEventEntity.getActivityType())) {
+          log.info("Received <" + historyEvent.getEventType() + "> event for <" + activityInstanceEventEntity.getActivityType() + "> with activityId <" + activityInstanceEventEntity
+            .getActivityId() + ">");
         }
+      }
+    } else if (historyEvent instanceof HistoricExternalTaskLogEntity) {
+      HistoricExternalTaskLogEntity externalTaskLogEvent = (HistoricExternalTaskLogEntity) historyEvent;
+
+      log.info("Received <" + historyEvent.getEventType() + "> event for external task with activityId <" + externalTaskLogEvent
+        .getActivityId() + ">");
     }
+  }
+
+  @Override
+  public void handleEvents(List<HistoryEvent> historyEvents) {
+    for (HistoryEvent historyEvent : historyEvents) {
+      handleEvent(historyEvent);
+    }
+  }
 }

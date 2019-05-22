@@ -16,7 +16,7 @@
       <bpmn:messageEventDefinition messageRef="Message_0zfl8cn" />
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0xz9g76" sourceRef="MessageReceivedEvent" targetRef="RegularServiceTask1Task" />
-    <bpmn:serviceTask id="RegularServiceTask1Task" name="Regular Service Task 1" camunda:class="com.camunda.consulting.LoggerDelegate">
+    <bpmn:serviceTask id="RegularServiceTask1Task" name="Regular Service Task 1" camunda:class="com.camunda.consulting.delegates.LoggerDelegate">
       <bpmn:incoming>SequenceFlow_0xz9g76</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0qez6rg</bpmn:outgoing>
     </bpmn:serviceTask>
