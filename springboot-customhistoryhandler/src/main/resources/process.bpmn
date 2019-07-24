@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.1.0">
-  <bpmn:process id="VxdemoProcess" name="vxdemo" isExecutable="true">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.1.2">
+  <bpmn:process id="processWithLotsOfSymbols" name="Process with lots of Symbols" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1u5mexs">
       <bpmn:outgoing>SequenceFlow_1i1g07k</bpmn:outgoing>
     </bpmn:startEvent>
@@ -47,7 +47,7 @@
   <bpmn:message id="Message_0zfl8cn" name="foo" />
   <bpmn:signal id="Signal_1ogqyrh" name="baz" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="VxdemoProcess">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="processWithLotsOfSymbols">
       <bpmndi:BPMNShape id="StartEvent_1u5mexs_di" bpmnElement="StartEvent_1u5mexs">
         <dc:Bounds x="205" y="103" width="36" height="36" />
       </bpmndi:BPMNShape>

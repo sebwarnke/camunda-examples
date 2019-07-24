@@ -8,15 +8,19 @@ import org.camunda.bpm.engine.impl.history.event.HistoryEventTypes;
 import org.camunda.bpm.engine.impl.history.handler.HistoryEventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CustomHistoryEventHandler implements HistoryEventHandler {
 
   private static final Logger log = LoggerFactory.getLogger(CustomHistoryEventHandler.class);
 
   @Override
+  @EventListener
   public void handleEvent(HistoryEvent historyEvent) {
 
     if (historyEvent instanceof HistoricActivityInstanceEventEntity) {
