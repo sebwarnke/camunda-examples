@@ -12,7 +12,7 @@ This version of `camunda-spring-boot-starter` ships with Spring Eventing integra
 registration. However, this update breaks how custom history event handlers were registered in this example
 before.
 
-If you require using an older version of Camunda see the respective tags.
+If you require using an older version of Camunda see commit 69d79ce937a8173d12ee5d771b8aa39222366e08.
 
 ## How it works, generally
 ### Creating a Custom History Event Handler
