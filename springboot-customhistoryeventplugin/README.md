@@ -1,4 +1,11 @@
 # Creating Custom History Events
+
+## Buzz Word Bingo
+- Custom History Event Producer
+- Custom History Level
+- Engine Plugin
+- Spring Boot
+
 ## Quick Info
 This plugin registers a custom history level and a custom history event producer. 
 
