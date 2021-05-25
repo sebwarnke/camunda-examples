@@ -1,0 +1,8 @@
+body {
+    color: #00FF00;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+[cam-widget-header] {
+    border-top-color: #00FF00;
+}
